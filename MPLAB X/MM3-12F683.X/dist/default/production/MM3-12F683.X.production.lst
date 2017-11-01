@@ -1,0 +1,807 @@
+
+
+Microchip Technology PIC PRO Macro Assembler V1.38 build -256452561 
+                                                                                               Wed Nov 01 00:41:06 2017
+
+Microchip Technology Omniscient Code Generator v1.38 (PRO mode) build 201607010351
+     1                           	processor	12F683
+     2                           	opt	pw 120
+     3                           	opt	pm
+     4                           	psect	idataBANK0,global,class=CODE,delta=2
+     5                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     6                           	psect	dataBANK0,global,class=BANK0,space=1,delta=1
+     7                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+     8                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+     9                           	psect	maintext,global,class=CODE,split=1,delta=2
+    10                           	psect	text1,local,class=CODE,merge=1,delta=2
+    11                           	psect	text2,local,class=CODE,merge=1,delta=2
+    12                           	psect	intentry,global,class=CODE,delta=2
+    13                           	psect	pa_nodes,global,class=CODE,delta=2
+    14                           	dabs	1,0x7E,2
+    15  0000                     	;# 
+    16  0001                     	;# 
+    17  0002                     	;# 
+    18  0003                     	;# 
+    19  0004                     	;# 
+    20  0005                     	;# 
+    21  000A                     	;# 
+    22  000B                     	;# 
+    23  000C                     	;# 
+    24  000E                     	;# 
+    25  000E                     	;# 
+    26  000F                     	;# 
+    27  0010                     	;# 
+    28  0011                     	;# 
+    29  0012                     	;# 
+    30  0013                     	;# 
+    31  0013                     	;# 
+    32  0014                     	;# 
+    33  0015                     	;# 
+    34  0018                     	;# 
+    35  0019                     	;# 
+    36  001A                     	;# 
+    37  001E                     	;# 
+    38  001F                     	;# 
+    39  0081                     	;# 
+    40  0085                     	;# 
+    41  008C                     	;# 
+    42  008E                     	;# 
+    43  008F                     	;# 
+    44  0090                     	;# 
+    45  0092                     	;# 
+    46  0095                     	;# 
+    47  0095                     	;# 
+    48  0096                     	;# 
+    49  0096                     	;# 
+    50  0099                     	;# 
+    51  009A                     	;# 
+    52  009A                     	;# 
+    53  009B                     	;# 
+    54  009C                     	;# 
+    55  009D                     	;# 
+    56  009E                     	;# 
+    57  009F                     	;# 
+    58                           
+    59                           	psect	idataBANK0
+    60  0000                     __pidataBANK0:	
+    61  001F                     _ADCON0	set	31
+    62  0019                     _CMCON0	set	25
+    63  0005                     _GPIO	set	5
+    64  0005                     _GPIObits	set	5
+    65  000B                     _INTCONbits	set	11
+    66  009F                     _ANSEL	set	159
+    67  0096                     _IOC	set	150
+    68  0096                     _IOCbits	set	150
+    69  008F                     _OSCCON	set	143
+    70  0085                     _TRISIO	set	133
+    71  0085                     _TRISIObits	set	133
+    72                           
+    73                           ; #config settings
+    74  0000                     
+    75                           	psect	cinit
+    76  000B                     start_initialization:	
+    77  000B                     __initialization:	
+    78                           
+    79                           ;initializer for _sendSecurityEnable
+    80  000B  3001               	movlw	1
+    81  000C  00A5               	movwf	__pdataBANK0& (0+127)
+    82  000D                     end_of_initialization:	
+    83                           ;End of C runtime variable initialization code
+    84                           
+    85  000D                     __end_of__initialization:	
+    86  000D  0183               	clrf	3
+    87  000E  280F               	ljmp	_main	;jump to C main() function
+    88                           
+    89                           	psect	dataBANK0
+    90  0025                     __pdataBANK0:	
+    91  0025                     _sendSecurityEnable:	
+    92  0025                     	ds	1
+    93                           
+    94                           	psect	cstackCOMMON
+    95  0070                     __pcstackCOMMON:	
+    96  0070                     ?_sendSecurityString:	
+    97  0070                     ?_DOOR_DETECT:	
+    98                           ; 1 bytes @ 0x0
+    99                           
+   100  0070                     ??_DOOR_DETECT:	
+   101                           ; 1 bytes @ 0x0
+   102                           
+   103  0070                     ?_main:	
+   104                           ; 1 bytes @ 0x0
+   105                           
+   106                           
+   107                           ; 1 bytes @ 0x0
+   108  0070                     	ds	4
+   109  0074                     ??_sendSecurityString:	
+   110                           
+   111                           ; 1 bytes @ 0x4
+   112  0074                     	ds	2
+   113  0076                     sendSecurityString@secChar:	
+   114                           
+   115                           ; 1 bytes @ 0x6
+   116  0076                     	ds	1
+   117  0077                     sendSecurityString@sendMask:	
+   118                           
+   119                           ; 1 bytes @ 0x7
+   120  0077                     	ds	1
+   121  0078                     sendSecurityString@sendFlag:	
+   122                           
+   123                           ; 1 bytes @ 0x8
+   124  0078                     	ds	1
+   125  0079                     sendSecurityString@bitPosition:	
+   126                           
+   127                           ; 1 bytes @ 0x9
+   128  0079                     	ds	1
+   129                           
+   130                           	psect	cstackBANK0
+   131  0020                     __pcstackBANK0:	
+   132  0020                     ??_main:	
+   133                           
+   134                           ; 1 bytes @ 0x0
+   135  0020                     	ds	3
+   136  0023                     main@i:	
+   137                           
+   138                           ; 1 bytes @ 0x3
+   139  0023                     	ds	1
+   140  0024                     main@j:	
+   141                           
+   142                           ; 1 bytes @ 0x4
+   143  0024                     	ds	1
+   144                           
+   145                           	psect	maintext
+   146  000F                     __pmaintext:	
+   147 ;;
+   148 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   149 ;;
+   150 ;; *************** function _main *****************
+   151 ;; Defined at:
+   152 ;;		line 102 in file "main.c"
+   153 ;; Parameters:    Size  Location     Type
+   154 ;;		None
+   155 ;; Auto vars:     Size  Location     Type
+   156 ;;  j               1    4[BANK0 ] unsigned char 
+   157 ;;  i               1    3[BANK0 ] unsigned char 
+   158 ;; Return value:  Size  Location     Type
+   159 ;;                  1    wreg      void 
+   160 ;; Registers used:
+   161 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   162 ;; Tracked objects:
+   163 ;;		On entry : B00/0
+   164 ;;		On exit  : 0/0
+   165 ;;		Unchanged: 0/0
+   166 ;; Data sizes:     COMMON   BANK0   BANK1
+   167 ;;      Params:         0       0       0
+   168 ;;      Locals:         0       2       0
+   169 ;;      Temps:          0       3       0
+   170 ;;      Totals:         0       5       0
+   171 ;;Total ram usage:        5 bytes
+   172 ;; Hardware stack levels required when called:    2
+   173 ;; This function calls:
+   174 ;;		_sendSecurityString
+   175 ;; This function is called by:
+   176 ;;		Startup code after reset
+   177 ;; This function uses a non-reentrant model
+   178 ;;
+   179                           
+   180                           
+   181                           ;psect for function _main
+   182  000F                     _main:	
+   183                           
+   184                           ;main.c: 103: OSCCON = 0x70;
+   185                           
+   186                           ;incstack = 0
+   187                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   188  000F  3070               	movlw	112
+   189  0010  1683               	bsf	3,5	;RP0=1, select bank1
+   190  0011  008F               	movwf	15	;volatile
+   191                           
+   192                           ;main.c: 104: GPIO = 0xFF;
+   193  0012  30FF               	movlw	255
+   194  0013  1283               	bcf	3,5	;RP0=0, select bank0
+   195  0014  0085               	movwf	5	;volatile
+   196                           
+   197                           ;main.c: 105: ANSEL = 0x00;
+   198  0015  1683               	bsf	3,5	;RP0=1, select bank1
+   199  0016  019F               	clrf	31	;volatile
+   200                           
+   201                           ;main.c: 106: GPIObits.GP1 = 0;
+   202  0017  1283               	bcf	3,5	;RP0=0, select bank0
+   203  0018  1085               	bcf	5,1	;volatile
+   204                           
+   205                           ;main.c: 107: GPIObits.GP2 = 0;
+   206  0019  1105               	bcf	5,2	;volatile
+   207                           
+   208                           ;main.c: 108: TRISIO = 0x00;
+   209  001A  1683               	bsf	3,5	;RP0=1, select bank1
+   210  001B  0185               	clrf	5	;volatile
+   211                           
+   212                           ;main.c: 109: ADCON0 = 0x00;
+   213  001C  1283               	bcf	3,5	;RP0=0, select bank0
+   214  001D  019F               	clrf	31	;volatile
+   215                           
+   216                           ;main.c: 110: CMCON0 = 0x07;
+   217  001E  3007               	movlw	7
+   218  001F  0099               	movwf	25	;volatile
+   219                           
+   220                           ;main.c: 111: INTCONbits.GIE = 1;
+   221  0020  178B               	bsf	11,7	;volatile
+   222                           
+   223                           ;main.c: 112: INTCONbits.GPIE = 1;
+   224  0021  158B               	bsf	11,3	;volatile
+   225                           
+   226                           ;main.c: 113: IOC = 0x00;
+   227  0022  1683               	bsf	3,5	;RP0=1, select bank1
+   228  0023  0196               	clrf	22	;volatile
+   229                           
+   230                           ;main.c: 114: IOCbits.IOC0 = 1;
+   231  0024  1416               	bsf	22,0	;volatile
+   232                           
+   233                           ;main.c: 116: TRISIObits.TRISIO0 = 1;
+   234  0025  1405               	bsf	5,0	;volatile
+   235                           
+   236                           ;main.c: 117: TRISIObits.TRISIO1 = 1;
+   237  0026  1485               	bsf	5,1	;volatile
+   238                           
+   239                           ;main.c: 118: TRISIObits.TRISIO2 = 1;
+   240  0027  1505               	bsf	5,2	;volatile
+   241  0028                     l710:	
+   242                           
+   243                           ;main.c: 121: if (sendSecurityEnable == 1){
+   244  0028  1283               	bcf	3,5	;RP0=0, select bank0
+   245  0029  0325               	decf	_sendSecurityEnable,w	;volatile
+   246  002A  1D03               	btfss	3,2
+   247  002B  2890               	goto	l55
+   248                           
+   249                           ;main.c: 122: _delay((unsigned long)((50)*(8000000/4000.0)));
+   250  002C  3082               	movlw	130
+   251  002D  00A1               	movwf	??_main+1
+   252  002E  30DD               	movlw	221
+   253  002F  00A0               	movwf	??_main
+   254  0030                     u157:	
+   255  0030  0BA0               	decfsz	??_main,f
+   256  0031  2830               	goto	u157
+   257  0032  0BA1               	decfsz	??_main+1,f
+   258  0033  2830               	goto	u157
+   259  0034  2835               	nop2
+   260                           
+   261                           ;main.c: 123: TRISIObits.TRISIO1 = 0;
+   262  0035  1683               	bsf	3,5	;RP0=1, select bank1
+   263  0036  1085               	bcf	5,1	;volatile
+   264                           
+   265                           ;main.c: 124: _delay((unsigned long)((850)*(8000000/4000.0)));
+   266  0037  3009               	movlw	9
+   267  0038  1283               	bcf	3,5	;RP0=0, select bank0
+   268  0039  00A2               	movwf	??_main+2
+   269  003A  30A0               	movlw	160
+   270  003B  00A1               	movwf	??_main+1
+   271  003C  30CA               	movlw	202
+   272  003D  00A0               	movwf	??_main
+   273  003E                     u167:	
+   274  003E  0BA0               	decfsz	??_main,f
+   275  003F  283E               	goto	u167
+   276  0040  0BA1               	decfsz	??_main+1,f
+   277  0041  283E               	goto	u167
+   278  0042  0BA2               	decfsz	??_main+2,f
+   279  0043  283E               	goto	u167
+   280                           
+   281                           ;main.c: 125: TRISIObits.TRISIO2 = 0;
+   282  0044  1683               	bsf	3,5	;RP0=1, select bank1
+   283  0045  1105               	bcf	5,2	;volatile
+   284                           
+   285                           ;main.c: 126: _delay((unsigned long)((314)*(8000000/4000.0)));
+   286  0046  3004               	movlw	4
+   287  0047  1283               	bcf	3,5	;RP0=0, select bank0
+   288  0048  00A2               	movwf	??_main+2
+   289  0049  3030               	movlw	48
+   290  004A  00A1               	movwf	??_main+1
+   291  004B  3093               	movlw	147
+   292  004C  00A0               	movwf	??_main
+   293  004D                     u177:	
+   294  004D  0BA0               	decfsz	??_main,f
+   295  004E  284D               	goto	u177
+   296  004F  0BA1               	decfsz	??_main+1,f
+   297  0050  284D               	goto	u177
+   298  0051  0BA2               	decfsz	??_main+2,f
+   299  0052  284D               	goto	u177
+   300                           
+   301                           ;main.c: 128: for (unsigned char i = 30; i > 0; i--){
+   302  0053  301E               	movlw	30
+   303  0054  1283               	bcf	3,5	;RP0=0, select bank0
+   304  0055  00A3               	movwf	main@i
+   305  0056                     l722:	
+   306                           
+   307                           ;main.c: 129: for(unsigned char j = 4; j > 0; j--){
+   308  0056  3004               	movlw	4
+   309  0057  00A4               	movwf	main@j
+   310  0058                     l728:	
+   311                           
+   312                           ;main.c: 130: sendSecurityString(SCExS);
+   313  0058  3053               	movlw	83
+   314  0059  2092               	fcall	_sendSecurityString
+   315                           
+   316                           ;main.c: 131: sendSecurityString(SCExC);
+   317  005A  3043               	movlw	67
+   318  005B  2092               	fcall	_sendSecurityString
+   319                           
+   320                           ;main.c: 132: sendSecurityString(SCExE);
+   321  005C  3045               	movlw	69
+   322  005D  2092               	fcall	_sendSecurityString
+   323                           
+   324                           ;main.c: 133: switch(j){
+   325  005E  286B               	goto	l740
+   326  005F                     l730:	
+   327                           
+   328                           ;main.c: 135: {
+   329                           ;main.c: 136: sendSecurityString(SCExA);
+   330  005F  3041               	movlw	65
+   331  0060  2092               	fcall	_sendSecurityString
+   332                           
+   333                           ;main.c: 137: break;
+   334  0061  287A               	goto	l742
+   335  0062                     l732:	
+   336                           
+   337                           ;main.c: 140: {
+   338                           ;main.c: 141: sendSecurityString(SCExE);
+   339  0062  3045               	movlw	69
+   340  0063  2092               	fcall	_sendSecurityString
+   341                           
+   342                           ;main.c: 142: break;
+   343  0064  287A               	goto	l742
+   344  0065                     l734:	
+   345                           
+   346                           ;main.c: 145: {
+   347                           ;main.c: 146: sendSecurityString(SCExI);
+   348  0065  3049               	movlw	73
+   349  0066  2092               	fcall	_sendSecurityString
+   350                           
+   351                           ;main.c: 147: break;
+   352  0067  287A               	goto	l742
+   353  0068                     l736:	
+   354                           
+   355                           ;main.c: 150: {
+   356                           ;main.c: 151: sendSecurityString(SCExW);
+   357  0068  3057               	movlw	87
+   358  0069  2092               	fcall	_sendSecurityString
+   359                           
+   360                           ;main.c: 152: break;
+   361  006A  287A               	goto	l742
+   362  006B                     l740:	
+   363  006B  1283               	bcf	3,5	;RP0=0, select bank0
+   364  006C  0824               	movf	main@j,w
+   365                           
+   366                           ; Switch size 1, requested type "space"
+   367                           ; Number of cases is 4, Range of values is 1 to 4
+   368                           ; switch strategies available:
+   369                           ; Name         Instructions Cycles
+   370                           ; simple_byte           13     7 (average)
+   371                           ; direct_byte           13     9 (fixed)
+   372                           ; jumptable            263     9 (fixed)
+   373                           ;	Chosen strategy is simple_byte
+   374  006D  3A01               	xorlw	1	; case 1
+   375  006E  1903               	skipnz
+   376  006F  2868               	goto	l736
+   377  0070  3A03               	xorlw	3	; case 2
+   378  0071  1903               	skipnz
+   379  0072  2865               	goto	l734
+   380  0073  3A01               	xorlw	1	; case 3
+   381  0074  1903               	skipnz
+   382  0075  2862               	goto	l732
+   383  0076  3A07               	xorlw	7	; case 4
+   384  0077  1903               	skipnz
+   385  0078  285F               	goto	l730
+   386  0079  287A               	goto	l742
+   387  007A                     l742:	
+   388                           
+   389                           ;main.c: 155: _delay((unsigned long)((72)*(8000000/4000.0)));
+   390  007A  30BC               	movlw	188
+   391  007B  1283               	bcf	3,5	;RP0=0, select bank0
+   392  007C  00A1               	movwf	??_main+1
+   393  007D  3001               	movlw	1
+   394  007E  00A0               	movwf	??_main
+   395  007F                     u187:	
+   396  007F  0BA0               	decfsz	??_main,f
+   397  0080  287F               	goto	u187
+   398  0081  0BA1               	decfsz	??_main+1,f
+   399  0082  287F               	goto	u187
+   400  0083  2884               	nop2
+   401  0084  1283               	bcf	3,5	;RP0=0, select bank0
+   402  0085  0BA4               	decfsz	main@j,f
+   403  0086  2858               	goto	l728
+   404  0087  03A3               	decf	main@i,f
+   405  0088  0823               	movf	main@i,w
+   406  0089  1D03               	btfss	3,2
+   407  008A  2856               	goto	l722
+   408                           
+   409                           ;main.c: 156: }
+   410                           ;main.c: 159: }
+   411                           ;main.c: 161: TRISIObits.TRISIO1 = 1;
+   412  008B  1683               	bsf	3,5	;RP0=1, select bank1
+   413  008C  1485               	bsf	5,1	;volatile
+   414                           
+   415                           ;main.c: 162: TRISIObits.TRISIO2 = 1;
+   416  008D  1505               	bsf	5,2	;volatile
+   417                           
+   418                           ;main.c: 164: sendSecurityEnable = 0;
+   419  008E  1283               	bcf	3,5	;RP0=0, select bank0
+   420  008F  01A5               	clrf	_sendSecurityEnable	;volatile
+   421  0090                     l55:	
+   422  0090  0063               	sleep	;# 
+   423  0091  2828               	goto	l710
+   424  0092                     __end_of_main:	
+   425                           
+   426                           	psect	text1
+   427  0092                     __ptext1:	
+   428 ;; *************** function _sendSecurityString *****************
+   429 ;; Defined at:
+   430 ;;		line 62 in file "main.c"
+   431 ;; Parameters:    Size  Location     Type
+   432 ;;  secChar         1    wreg     unsigned char 
+   433 ;; Auto vars:     Size  Location     Type
+   434 ;;  secChar         1    6[COMMON] unsigned char 
+   435 ;;  bitPosition     1    9[COMMON] unsigned char 
+   436 ;;  sendFlag        1    8[COMMON] unsigned char 
+   437 ;;  sendMask        1    7[COMMON] unsigned char 
+   438 ;; Return value:  Size  Location     Type
+   439 ;;                  1    wreg      void 
+   440 ;; Registers used:
+   441 ;;		wreg, status,2, status,0
+   442 ;; Tracked objects:
+   443 ;;		On entry : 0/0
+   444 ;;		On exit  : 0/0
+   445 ;;		Unchanged: 0/0
+   446 ;; Data sizes:     COMMON   BANK0   BANK1
+   447 ;;      Params:         0       0       0
+   448 ;;      Locals:         4       0       0
+   449 ;;      Temps:          2       0       0
+   450 ;;      Totals:         6       0       0
+   451 ;;Total ram usage:        6 bytes
+   452 ;; Hardware stack levels used:    1
+   453 ;; Hardware stack levels required when called:    1
+   454 ;; This function calls:
+   455 ;;		Nothing
+   456 ;; This function is called by:
+   457 ;;		_main
+   458 ;; This function uses a non-reentrant model
+   459 ;;
+   460                           
+   461                           
+   462                           ;psect for function _sendSecurityString
+   463  0092                     _sendSecurityString:	
+   464                           
+   465                           ;incstack = 0
+   466                           ; Regs used in _sendSecurityString: [wreg+status,2+status,0]
+   467                           ;sendSecurityString@secChar stored from wreg
+   468  0092  00F6               	movwf	sendSecurityString@secChar
+   469                           
+   470                           ;main.c: 63: unsigned char bitPosition = 0;
+   471  0093  01F9               	clrf	sendSecurityString@bitPosition
+   472                           
+   473                           ;main.c: 64: unsigned char sendMask = 0b00000001;
+   474  0094  01F7               	clrf	sendSecurityString@sendMask
+   475  0095  0AF7               	incf	sendSecurityString@sendMask,f
+   476                           
+   477                           ;main.c: 65: unsigned char sendFlag;
+   478                           ;main.c: 67: TRISIObits.TRISIO1 = 1;
+   479  0096  1683               	bsf	3,5	;RP0=1, select bank1
+   480  0097  1485               	bsf	5,1	;volatile
+   481  0098                     l646:	
+   482                           ;main.c: 70: while(bitPosition < 8){
+   483                           
+   484                           
+   485                           ;main.c: 68: _delay((unsigned long)((4)*(8000000/4000.0)));
+   486  0098  300B               	movlw	11
+   487  0099  00F5               	movwf	??_sendSecurityString+1
+   488  009A  3062               	movlw	98
+   489  009B  00F4               	movwf	??_sendSecurityString
+   490  009C                     u197:	
+   491  009C  0BF4               	decfsz	??_sendSecurityString,f
+   492  009D  289C               	goto	u197
+   493  009E  0BF5               	decfsz	??_sendSecurityString+1,f
+   494  009F  289C               	goto	u197
+   495  00A0  0000               	nop
+   496  00A1  3008               	movlw	8
+   497  00A2  0279               	subwf	sendSecurityString@bitPosition,w
+   498  00A3  1803               	btfsc	3,0
+   499  00A4  28B4               	goto	l45
+   500                           
+   501                           ;main.c: 71: sendFlag = (secChar & sendMask);
+   502  00A5  0876               	movf	sendSecurityString@secChar,w
+   503  00A6  00F8               	movwf	sendSecurityString@sendFlag
+   504  00A7  0877               	movf	sendSecurityString@sendMask,w
+   505  00A8  05F8               	andwf	sendSecurityString@sendFlag,f
+   506                           
+   507                           ;main.c: 72: if(!sendFlag){
+   508  00A9  0878               	movf	sendSecurityString@sendFlag,w
+   509                           
+   510                           ;main.c: 73: TRISIObits.TRISIO1 = 1;
+   511  00AA  1683               	bsf	3,5	;RP0=1, select bank1
+   512  00AB  1D03               	btfss	3,2
+   513  00AC  28AF               	goto	L1
+   514  00AD  1485               	bsf	5,1	;volatile
+   515                           
+   516                           ;main.c: 74: } else {
+   517  00AE  28B0               	goto	l656
+   518  00AF                     L1:	
+   519                           ;main.c: 75: TRISIObits.TRISIO1 = 0;
+   520                           
+   521  00AF  1085               	bcf	5,1	;volatile
+   522  00B0                     l656:	
+   523                           
+   524                           ;main.c: 76: }
+   525                           ;main.c: 77: bitPosition++;
+   526  00B0  0AF9               	incf	sendSecurityString@bitPosition,f
+   527                           
+   528                           ;main.c: 78: sendMask = sendMask << 1;
+   529  00B1  1003               	clrc
+   530  00B2  0DF7               	rlf	sendSecurityString@sendMask,f
+   531  00B3  2898               	goto	l646
+   532  00B4                     l45:	
+   533                           
+   534                           ;main.c: 80: }
+   535                           ;main.c: 82: TRISIObits.TRISIO1 = 0;
+   536  00B4  1683               	bsf	3,5	;RP0=1, select bank1
+   537  00B5  1085               	bcf	5,1	;volatile
+   538                           
+   539                           ;main.c: 83: _delay((unsigned long)((8)*(8000000/4000.0)));
+   540  00B6  3015               	movlw	21
+   541  00B7  00F5               	movwf	??_sendSecurityString+1
+   542  00B8  30C6               	movlw	198
+   543  00B9  00F4               	movwf	??_sendSecurityString
+   544  00BA                     u207:	
+   545  00BA  0BF4               	decfsz	??_sendSecurityString,f
+   546  00BB  28BA               	goto	u207
+   547  00BC  0BF5               	decfsz	??_sendSecurityString+1,f
+   548  00BD  28BA               	goto	u207
+   549  00BE  0000               	nop
+   550  00BF  0008               	return
+   551  00C0                     __end_of_sendSecurityString:	
+   552                           
+   553                           	psect	text2
+   554  00C0                     __ptext2:	
+   555 ;; *************** function _DOOR_DETECT *****************
+   556 ;; Defined at:
+   557 ;;		line 88 in file "main.c"
+   558 ;; Parameters:    Size  Location     Type
+   559 ;;		None
+   560 ;; Auto vars:     Size  Location     Type
+   561 ;;		None
+   562 ;; Return value:  Size  Location     Type
+   563 ;;                  1    wreg      void 
+   564 ;; Registers used:
+   565 ;;		wreg
+   566 ;; Tracked objects:
+   567 ;;		On entry : 0/0
+   568 ;;		On exit  : 100/0
+   569 ;;		Unchanged: 0/0
+   570 ;; Data sizes:     COMMON   BANK0   BANK1
+   571 ;;      Params:         0       0       0
+   572 ;;      Locals:         0       0       0
+   573 ;;      Temps:          4       0       0
+   574 ;;      Totals:         4       0       0
+   575 ;;Total ram usage:        4 bytes
+   576 ;; Hardware stack levels used:    1
+   577 ;; This function calls:
+   578 ;;		Nothing
+   579 ;; This function is called by:
+   580 ;;		Interrupt level 1
+   581 ;; This function uses a non-reentrant model
+   582 ;;
+   583                           
+   584                           
+   585                           ;psect for function _DOOR_DETECT
+   586  00C0                     _DOOR_DETECT:	
+   587                           
+   588                           ;main.c: 89: GPIO;
+   589  00C0  1283               	bcf	3,5	;RP0=0, select bank0
+   590  00C1  0805               	movf	5,w	;volatile
+   591                           
+   592                           ;main.c: 90: if( GPIObits.GP0 == 0){
+   593  00C2  1805               	btfsc	5,0	;volatile
+   594  00C3  28D4               	goto	i1l682
+   595                           
+   596                           ;main.c: 91: INTCONbits.GIE = 0;
+   597  00C4  138B               	bcf	11,7	;volatile
+   598                           
+   599                           ;main.c: 92: _delay((unsigned long)((50)*(8000000/4000.0)));
+   600  00C5  3082               	movlw	130
+   601  00C6  00F1               	movwf	??_DOOR_DETECT+1
+   602  00C7  30DD               	movlw	221
+   603  00C8  00F0               	movwf	??_DOOR_DETECT
+   604  00C9                     u21_27:	
+   605  00C9  0BF0               	decfsz	??_DOOR_DETECT,f
+   606  00CA  28C9               	goto	u21_27
+   607  00CB  0BF1               	decfsz	??_DOOR_DETECT+1,f
+   608  00CC  28C9               	goto	u21_27
+   609  00CD  28CE               	nop2
+   610                           
+   611                           ;main.c: 93: if(GPIObits.GP0 == 0){
+   612  00CE  1283               	bcf	3,5	;RP0=0, select bank0
+   613  00CF  1805               	btfsc	5,0	;volatile
+   614  00D0  28D3               	goto	i1l680
+   615                           
+   616                           ;main.c: 94: sendSecurityEnable = 1;
+   617  00D1  3001               	movlw	1
+   618  00D2  00A5               	movwf	_sendSecurityEnable	;volatile
+   619  00D3                     i1l680:	
+   620                           
+   621                           ;main.c: 95: }
+   622                           ;main.c: 96: INTCONbits.GIE = 1;
+   623  00D3  178B               	bsf	11,7	;volatile
+   624  00D4                     i1l682:	
+   625                           
+   626                           ;main.c: 97: }
+   627                           ;main.c: 99: INTCONbits.GPIF = 0;
+   628  00D4  100B               	bcf	11,0	;volatile
+   629  00D5  0873               	movf	??_DOOR_DETECT+3,w
+   630  00D6  008A               	movwf	10
+   631  00D7  0E72               	swapf	(??_DOOR_DETECT+2)^(0+-128),w
+   632  00D8  0083               	movwf	3
+   633  00D9  0EFE               	swapf	126,f
+   634  00DA  0E7E               	swapf	126,w
+   635  00DB  0009               	retfie
+   636  00DC                     __end_of_DOOR_DETECT:	
+   637  007E                     btemp	set	126	;btemp
+   638  007E                     wtemp	set	126
+   639  007E                     wtemp0	set	126
+   640  0080                     wtemp1	set	128
+   641  0082                     wtemp2	set	130
+   642  0084                     wtemp3	set	132
+   643  0086                     wtemp4	set	134
+   644  0088                     wtemp5	set	136
+   645  007F                     wtemp6	set	127
+   646  007E                     ttemp	set	126
+   647  007E                     ttemp0	set	126
+   648  0081                     ttemp1	set	129
+   649  0084                     ttemp2	set	132
+   650  0087                     ttemp3	set	135
+   651  007F                     ttemp4	set	127
+   652  007E                     ltemp	set	126
+   653  007E                     ltemp0	set	126
+   654  0082                     ltemp1	set	130
+   655  0086                     ltemp2	set	134
+   656  0080                     ltemp3	set	128
+   657                           
+   658                           	psect	intentry
+   659  0004                     __pintentry:	
+   660                           ;incstack = 0
+   661                           ; Regs used in _DOOR_DETECT: [wreg]
+   662                           
+   663  0004                     interrupt_function:	
+   664  007E                     saved_w	set	btemp
+   665  0004  00FE               	movwf	btemp
+   666  0005  0E03               	swapf	3,w
+   667  0006  00F2               	movwf	??_DOOR_DETECT+2
+   668  0007  080A               	movf	10,w
+   669  0008  00F3               	movwf	??_DOOR_DETECT+3
+   670  0009  28C0               	ljmp	_DOOR_DETECT
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        1
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14     10      10
+    BANK0            80      5       6
+    BANK1            32      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    _main->_sendSecurityString
+
+Critical Paths under _DOOR_DETECT in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _DOOR_DETECT in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _DOOR_DETECT in BANK1
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 5     5      0     209
+                                              0 BANK0      5     5      0
+                 _sendSecurityString
+ ---------------------------------------------------------------------------------
+ (1) _sendSecurityString                                   6     6      0      95
+                                              4 COMMON     6     6      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (2) _DOOR_DETECT                                          4     4      0       0
+                                              0 COMMON     4     4      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _sendSecurityString
+
+ _DOOR_DETECT (ROOT)
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BANK1               20      0       0       5        0.0%
+BITBANK1            20      0       0       7        0.0%
+SFR1                 0      0       0       2        0.0%
+BITSFR1              0      0       0       2        0.0%
+BANK0               50      5       6       4        7.5%
+BITBANK0            50      0       0       3        0.0%
+SFR0                 0      0       0       1        0.0%
+BITSFR0              0      0       0       1        0.0%
+COMMON               E      A       A       1       71.4%
+BITCOMMON            E      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+DATA                 0      0      10       8        0.0%
+ABS                  0      0      10       6        0.0%
+NULL                 0      0       0       0        0.0%
+STACK                0      0       0       2        0.0%
+EEDATA             100      0       0       0        0.0%
+
+
+Microchip Technology PIC Macro Assembler V1.38 build -256452561 
+Symbol Table                                                                                   Wed Nov 01 00:41:06 2017
+
+                  __CFG_CP$OFF 0000                             l45 00B4                             l55 0090  
+                          l710 0028                            l730 005F                            l722 0056  
+                          l732 0062                            l740 006B                            l646 0098  
+                          l734 0065                            l742 007A                            l656 00B0  
+                          l736 0068                            l728 0058                            _IOC 0096  
+                          u207 00BA                            u157 0030                            u167 003E  
+                          u177 004D                   __CFG_CPD$OFF 0000                            u187 007F  
+                          u197 009C                           _GPIO 0005                           _main 000F  
+                         btemp 007E                           ltemp 007E                           start 000A  
+                         ttemp 007E                           wtemp 007E                  __CFG_IESO$OFF 0000  
+                __CFG_MCLRE$ON 0000                          ?_main 0070                  __CFG_WDTE$OFF 0000  
+                        _ANSEL 009F                          i1l680 00D3                          i1l682 00D4  
+                        u21_27 00C9                 __CFG_FCMEN$OFF 0000                          main@i 0023  
+                        main@j 0024                 __CFG_BOREN$OFF 0000                          pclath 000A  
+                        ltemp0 007E                          ltemp1 0082                          ltemp2 0086  
+                        ltemp3 0080                          ttemp0 007E                          ttemp1 0081  
+                        ttemp2 0084                          ttemp3 0087                          ttemp4 007F  
+                        status 0003                          wtemp0 007E                          wtemp1 0080  
+                        wtemp2 0082                          wtemp3 0084                          wtemp4 0086  
+                        wtemp5 0088                          wtemp6 007F                __initialization 000B  
+                 __end_of_main 0092  sendSecurityString@bitPosition 0079                         ??_main 0020  
+                       _ADCON0 001F                         _CMCON0 0019                         _OSCCON 008F  
+                       _TRISIO 0085                 __CFG_PWRTE$OFF 0000           __size_of_DOOR_DETECT 001C  
+           _sendSecurityEnable 0025                         saved_w 007E             _sendSecurityString 0092  
+      __end_of__initialization 000D            ?_sendSecurityString 0070                 __pcstackCOMMON 0070  
+                 __pidataBANK0 0000           ??_sendSecurityString 0074                     __pmaintext 000F  
+                   __pintentry 0004                        _IOCbits 0096                        __ptext1 0092  
+                      __ptext2 00C0           end_of_initialization 000D     sendSecurityString@sendFlag 0078  
+   sendSecurityString@sendMask 0077                  ??_DOOR_DETECT 0070            start_initialization 000B  
+          __end_of_DOOR_DETECT 00DC                    __pdataBANK0 0025    __size_of_sendSecurityString 002E  
+                    ___latbits 0000                  __pcstackBANK0 0020              interrupt_function 0004  
+                  _DOOR_DETECT 00C0                       _GPIObits 0005                  __size_of_main 0083  
+                   _INTCONbits 000B                       intlevel1 0000      sendSecurityString@secChar 0076  
+   __end_of_sendSecurityString 00C0            __CFG_FOSC$INTOSCCLK 0000                   ?_DOOR_DETECT 0070  
+                   _TRISIObits 0085  
