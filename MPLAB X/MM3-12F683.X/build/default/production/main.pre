@@ -2,7 +2,7 @@
 # 1 "main.c"
 
 
-# 28
+# 32
 #pragma config FOSC = INTOSCCLK
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -1178,7 +1178,7 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
-# 48 "main.c"
+# 52 "main.c"
 unsigned char SCExS = 0b01010011;
 unsigned char SCExC = 0b01000011;
 unsigned char SCExE = 0b01000101;
@@ -1186,7 +1186,7 @@ unsigned char SCExA = 0b01000001;
 unsigned char SCExI = 0b01001001;
 unsigned char SCExW = 0b01010111;
 
-# 60
+# 67
 volatile unsigned char sendSecurityEnable = 1;
 
 void sendSecurityString(unsigned char secChar){
@@ -1260,6 +1260,7 @@ for(unsigned char j = 4; j > 0; j--){
 sendSecurityString(SCExS);
 sendSecurityString(SCExC);
 sendSecurityString(SCExE);
+
 switch(j){
 case 4:
 {
@@ -1282,6 +1283,8 @@ sendSecurityString(SCExW);
 break;
 }
 }
+
+# 172
 _delay((unsigned long)((72)*(8000000/4000.0)));
 }
 

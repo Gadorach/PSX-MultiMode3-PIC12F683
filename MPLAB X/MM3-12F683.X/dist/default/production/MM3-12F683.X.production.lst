@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC PRO Macro Assembler V1.38 build -256452561 
-                                                                                               Wed Nov 01 00:41:06 2017
+                                                                                               Wed Nov 01 15:57:50 2017
 
 Microchip Technology Omniscient Code Generator v1.38 (PRO mode) build 201607010351
      1                           	processor	12F683
@@ -155,7 +155,7 @@ Microchip Technology Omniscient Code Generator v1.38 (PRO mode) build 2016070103
    149 ;;
    150 ;; *************** function _main *****************
    151 ;; Defined at:
-   152 ;;		line 102 in file "main.c"
+   152 ;;		line 109 in file "main.c"
    153 ;; Parameters:    Size  Location     Type
    154 ;;		None
    155 ;; Auto vars:     Size  Location     Type
@@ -187,7 +187,7 @@ Microchip Technology Omniscient Code Generator v1.38 (PRO mode) build 2016070103
    181                           ;psect for function _main
    182  000F                     _main:	
    183                           
-   184                           ;main.c: 103: OSCCON = 0x70;
+   184                           ;main.c: 110: OSCCON = 0x70;
    185                           
    186                           ;incstack = 0
    187                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
@@ -195,64 +195,64 @@ Microchip Technology Omniscient Code Generator v1.38 (PRO mode) build 2016070103
    189  0010  1683               	bsf	3,5	;RP0=1, select bank1
    190  0011  008F               	movwf	15	;volatile
    191                           
-   192                           ;main.c: 104: GPIO = 0xFF;
+   192                           ;main.c: 111: GPIO = 0xFF;
    193  0012  30FF               	movlw	255
    194  0013  1283               	bcf	3,5	;RP0=0, select bank0
    195  0014  0085               	movwf	5	;volatile
    196                           
-   197                           ;main.c: 105: ANSEL = 0x00;
+   197                           ;main.c: 112: ANSEL = 0x00;
    198  0015  1683               	bsf	3,5	;RP0=1, select bank1
    199  0016  019F               	clrf	31	;volatile
    200                           
-   201                           ;main.c: 106: GPIObits.GP1 = 0;
+   201                           ;main.c: 113: GPIObits.GP1 = 0;
    202  0017  1283               	bcf	3,5	;RP0=0, select bank0
    203  0018  1085               	bcf	5,1	;volatile
    204                           
-   205                           ;main.c: 107: GPIObits.GP2 = 0;
+   205                           ;main.c: 114: GPIObits.GP2 = 0;
    206  0019  1105               	bcf	5,2	;volatile
    207                           
-   208                           ;main.c: 108: TRISIO = 0x00;
+   208                           ;main.c: 115: TRISIO = 0x00;
    209  001A  1683               	bsf	3,5	;RP0=1, select bank1
    210  001B  0185               	clrf	5	;volatile
    211                           
-   212                           ;main.c: 109: ADCON0 = 0x00;
+   212                           ;main.c: 116: ADCON0 = 0x00;
    213  001C  1283               	bcf	3,5	;RP0=0, select bank0
    214  001D  019F               	clrf	31	;volatile
    215                           
-   216                           ;main.c: 110: CMCON0 = 0x07;
+   216                           ;main.c: 117: CMCON0 = 0x07;
    217  001E  3007               	movlw	7
    218  001F  0099               	movwf	25	;volatile
    219                           
-   220                           ;main.c: 111: INTCONbits.GIE = 1;
+   220                           ;main.c: 118: INTCONbits.GIE = 1;
    221  0020  178B               	bsf	11,7	;volatile
    222                           
-   223                           ;main.c: 112: INTCONbits.GPIE = 1;
+   223                           ;main.c: 119: INTCONbits.GPIE = 1;
    224  0021  158B               	bsf	11,3	;volatile
    225                           
-   226                           ;main.c: 113: IOC = 0x00;
+   226                           ;main.c: 120: IOC = 0x00;
    227  0022  1683               	bsf	3,5	;RP0=1, select bank1
    228  0023  0196               	clrf	22	;volatile
    229                           
-   230                           ;main.c: 114: IOCbits.IOC0 = 1;
+   230                           ;main.c: 121: IOCbits.IOC0 = 1;
    231  0024  1416               	bsf	22,0	;volatile
    232                           
-   233                           ;main.c: 116: TRISIObits.TRISIO0 = 1;
+   233                           ;main.c: 123: TRISIObits.TRISIO0 = 1;
    234  0025  1405               	bsf	5,0	;volatile
    235                           
-   236                           ;main.c: 117: TRISIObits.TRISIO1 = 1;
+   236                           ;main.c: 124: TRISIObits.TRISIO1 = 1;
    237  0026  1485               	bsf	5,1	;volatile
    238                           
-   239                           ;main.c: 118: TRISIObits.TRISIO2 = 1;
+   239                           ;main.c: 125: TRISIObits.TRISIO2 = 1;
    240  0027  1505               	bsf	5,2	;volatile
    241  0028                     l710:	
    242                           
-   243                           ;main.c: 121: if (sendSecurityEnable == 1){
+   243                           ;main.c: 128: if (sendSecurityEnable == 1){
    244  0028  1283               	bcf	3,5	;RP0=0, select bank0
    245  0029  0325               	decf	_sendSecurityEnable,w	;volatile
    246  002A  1D03               	btfss	3,2
    247  002B  2890               	goto	l55
    248                           
-   249                           ;main.c: 122: _delay((unsigned long)((50)*(8000000/4000.0)));
+   249                           ;main.c: 129: _delay((unsigned long)((50)*(8000000/4000.0)));
    250  002C  3082               	movlw	130
    251  002D  00A1               	movwf	??_main+1
    252  002E  30DD               	movlw	221
@@ -264,11 +264,11 @@ Microchip Technology Omniscient Code Generator v1.38 (PRO mode) build 2016070103
    258  0033  2830               	goto	u157
    259  0034  2835               	nop2
    260                           
-   261                           ;main.c: 123: TRISIObits.TRISIO1 = 0;
+   261                           ;main.c: 130: TRISIObits.TRISIO1 = 0;
    262  0035  1683               	bsf	3,5	;RP0=1, select bank1
    263  0036  1085               	bcf	5,1	;volatile
    264                           
-   265                           ;main.c: 124: _delay((unsigned long)((850)*(8000000/4000.0)));
+   265                           ;main.c: 131: _delay((unsigned long)((850)*(8000000/4000.0)));
    266  0037  3009               	movlw	9
    267  0038  1283               	bcf	3,5	;RP0=0, select bank0
    268  0039  00A2               	movwf	??_main+2
@@ -284,11 +284,11 @@ Microchip Technology Omniscient Code Generator v1.38 (PRO mode) build 2016070103
    278  0042  0BA2               	decfsz	??_main+2,f
    279  0043  283E               	goto	u167
    280                           
-   281                           ;main.c: 125: TRISIObits.TRISIO2 = 0;
+   281                           ;main.c: 132: TRISIObits.TRISIO2 = 0;
    282  0044  1683               	bsf	3,5	;RP0=1, select bank1
    283  0045  1105               	bcf	5,2	;volatile
    284                           
-   285                           ;main.c: 126: _delay((unsigned long)((314)*(8000000/4000.0)));
+   285                           ;main.c: 133: _delay((unsigned long)((314)*(8000000/4000.0)));
    286  0046  3004               	movlw	4
    287  0047  1283               	bcf	3,5	;RP0=0, select bank0
    288  0048  00A2               	movwf	??_main+2
@@ -304,66 +304,66 @@ Microchip Technology Omniscient Code Generator v1.38 (PRO mode) build 2016070103
    298  0051  0BA2               	decfsz	??_main+2,f
    299  0052  284D               	goto	u177
    300                           
-   301                           ;main.c: 128: for (unsigned char i = 30; i > 0; i--){
+   301                           ;main.c: 135: for (unsigned char i = 30; i > 0; i--){
    302  0053  301E               	movlw	30
    303  0054  1283               	bcf	3,5	;RP0=0, select bank0
    304  0055  00A3               	movwf	main@i
    305  0056                     l722:	
    306                           
-   307                           ;main.c: 129: for(unsigned char j = 4; j > 0; j--){
+   307                           ;main.c: 136: for(unsigned char j = 4; j > 0; j--){
    308  0056  3004               	movlw	4
    309  0057  00A4               	movwf	main@j
    310  0058                     l728:	
    311                           
-   312                           ;main.c: 130: sendSecurityString(SCExS);
+   312                           ;main.c: 137: sendSecurityString(SCExS);
    313  0058  3053               	movlw	83
    314  0059  2092               	fcall	_sendSecurityString
    315                           
-   316                           ;main.c: 131: sendSecurityString(SCExC);
+   316                           ;main.c: 138: sendSecurityString(SCExC);
    317  005A  3043               	movlw	67
    318  005B  2092               	fcall	_sendSecurityString
    319                           
-   320                           ;main.c: 132: sendSecurityString(SCExE);
+   320                           ;main.c: 139: sendSecurityString(SCExE);
    321  005C  3045               	movlw	69
    322  005D  2092               	fcall	_sendSecurityString
    323                           
-   324                           ;main.c: 133: switch(j){
+   324                           ;main.c: 141: switch(j){
    325  005E  286B               	goto	l740
    326  005F                     l730:	
    327                           
-   328                           ;main.c: 135: {
-   329                           ;main.c: 136: sendSecurityString(SCExA);
+   328                           ;main.c: 143: {
+   329                           ;main.c: 144: sendSecurityString(SCExA);
    330  005F  3041               	movlw	65
    331  0060  2092               	fcall	_sendSecurityString
    332                           
-   333                           ;main.c: 137: break;
+   333                           ;main.c: 145: break;
    334  0061  287A               	goto	l742
    335  0062                     l732:	
    336                           
-   337                           ;main.c: 140: {
-   338                           ;main.c: 141: sendSecurityString(SCExE);
+   337                           ;main.c: 148: {
+   338                           ;main.c: 149: sendSecurityString(SCExE);
    339  0062  3045               	movlw	69
    340  0063  2092               	fcall	_sendSecurityString
    341                           
-   342                           ;main.c: 142: break;
+   342                           ;main.c: 150: break;
    343  0064  287A               	goto	l742
    344  0065                     l734:	
    345                           
-   346                           ;main.c: 145: {
-   347                           ;main.c: 146: sendSecurityString(SCExI);
+   346                           ;main.c: 153: {
+   347                           ;main.c: 154: sendSecurityString(SCExI);
    348  0065  3049               	movlw	73
    349  0066  2092               	fcall	_sendSecurityString
    350                           
-   351                           ;main.c: 147: break;
+   351                           ;main.c: 155: break;
    352  0067  287A               	goto	l742
    353  0068                     l736:	
    354                           
-   355                           ;main.c: 150: {
-   356                           ;main.c: 151: sendSecurityString(SCExW);
+   355                           ;main.c: 158: {
+   356                           ;main.c: 159: sendSecurityString(SCExW);
    357  0068  3057               	movlw	87
    358  0069  2092               	fcall	_sendSecurityString
    359                           
-   360                           ;main.c: 152: break;
+   360                           ;main.c: 160: break;
    361  006A  287A               	goto	l742
    362  006B                     l740:	
    363  006B  1283               	bcf	3,5	;RP0=0, select bank0
@@ -392,7 +392,7 @@ Microchip Technology Omniscient Code Generator v1.38 (PRO mode) build 2016070103
    386  0079  287A               	goto	l742
    387  007A                     l742:	
    388                           
-   389                           ;main.c: 155: _delay((unsigned long)((72)*(8000000/4000.0)));
+   389                           ;main.c: 172: _delay((unsigned long)((72)*(8000000/4000.0)));
    390  007A  30BC               	movlw	188
    391  007B  1283               	bcf	3,5	;RP0=0, select bank0
    392  007C  00A1               	movwf	??_main+1
@@ -412,16 +412,16 @@ Microchip Technology Omniscient Code Generator v1.38 (PRO mode) build 2016070103
    406  0089  1D03               	btfss	3,2
    407  008A  2856               	goto	l722
    408                           
-   409                           ;main.c: 156: }
-   410                           ;main.c: 159: }
-   411                           ;main.c: 161: TRISIObits.TRISIO1 = 1;
+   409                           ;main.c: 173: }
+   410                           ;main.c: 176: }
+   411                           ;main.c: 178: TRISIObits.TRISIO1 = 1;
    412  008B  1683               	bsf	3,5	;RP0=1, select bank1
    413  008C  1485               	bsf	5,1	;volatile
    414                           
-   415                           ;main.c: 162: TRISIObits.TRISIO2 = 1;
+   415                           ;main.c: 179: TRISIObits.TRISIO2 = 1;
    416  008D  1505               	bsf	5,2	;volatile
    417                           
-   418                           ;main.c: 164: sendSecurityEnable = 0;
+   418                           ;main.c: 181: sendSecurityEnable = 0;
    419  008E  1283               	bcf	3,5	;RP0=0, select bank0
    420  008F  01A5               	clrf	_sendSecurityEnable	;volatile
    421  0090                     l55:	
@@ -433,7 +433,7 @@ Microchip Technology Omniscient Code Generator v1.38 (PRO mode) build 2016070103
    427  0092                     __ptext1:	
    428 ;; *************** function _sendSecurityString *****************
    429 ;; Defined at:
-   430 ;;		line 62 in file "main.c"
+   430 ;;		line 69 in file "main.c"
    431 ;; Parameters:    Size  Location     Type
    432 ;;  secChar         1    wreg     unsigned char 
    433 ;; Auto vars:     Size  Location     Type
@@ -473,22 +473,22 @@ Microchip Technology Omniscient Code Generator v1.38 (PRO mode) build 2016070103
    467                           ;sendSecurityString@secChar stored from wreg
    468  0092  00F6               	movwf	sendSecurityString@secChar
    469                           
-   470                           ;main.c: 63: unsigned char bitPosition = 0;
+   470                           ;main.c: 70: unsigned char bitPosition = 0;
    471  0093  01F9               	clrf	sendSecurityString@bitPosition
    472                           
-   473                           ;main.c: 64: unsigned char sendMask = 0b00000001;
+   473                           ;main.c: 71: unsigned char sendMask = 0b00000001;
    474  0094  01F7               	clrf	sendSecurityString@sendMask
    475  0095  0AF7               	incf	sendSecurityString@sendMask,f
    476                           
-   477                           ;main.c: 65: unsigned char sendFlag;
-   478                           ;main.c: 67: TRISIObits.TRISIO1 = 1;
+   477                           ;main.c: 72: unsigned char sendFlag;
+   478                           ;main.c: 74: TRISIObits.TRISIO1 = 1;
    479  0096  1683               	bsf	3,5	;RP0=1, select bank1
    480  0097  1485               	bsf	5,1	;volatile
    481  0098                     l646:	
-   482                           ;main.c: 70: while(bitPosition < 8){
+   482                           ;main.c: 77: while(bitPosition < 8){
    483                           
    484                           
-   485                           ;main.c: 68: _delay((unsigned long)((4)*(8000000/4000.0)));
+   485                           ;main.c: 75: _delay((unsigned long)((4)*(8000000/4000.0)));
    486  0098  300B               	movlw	11
    487  0099  00F5               	movwf	??_sendSecurityString+1
    488  009A  3062               	movlw	98
@@ -504,45 +504,45 @@ Microchip Technology Omniscient Code Generator v1.38 (PRO mode) build 2016070103
    498  00A3  1803               	btfsc	3,0
    499  00A4  28B4               	goto	l45
    500                           
-   501                           ;main.c: 71: sendFlag = (secChar & sendMask);
+   501                           ;main.c: 78: sendFlag = (secChar & sendMask);
    502  00A5  0876               	movf	sendSecurityString@secChar,w
    503  00A6  00F8               	movwf	sendSecurityString@sendFlag
    504  00A7  0877               	movf	sendSecurityString@sendMask,w
    505  00A8  05F8               	andwf	sendSecurityString@sendFlag,f
    506                           
-   507                           ;main.c: 72: if(!sendFlag){
+   507                           ;main.c: 79: if(!sendFlag){
    508  00A9  0878               	movf	sendSecurityString@sendFlag,w
    509                           
-   510                           ;main.c: 73: TRISIObits.TRISIO1 = 1;
+   510                           ;main.c: 80: TRISIObits.TRISIO1 = 1;
    511  00AA  1683               	bsf	3,5	;RP0=1, select bank1
    512  00AB  1D03               	btfss	3,2
    513  00AC  28AF               	goto	L1
    514  00AD  1485               	bsf	5,1	;volatile
    515                           
-   516                           ;main.c: 74: } else {
+   516                           ;main.c: 81: } else {
    517  00AE  28B0               	goto	l656
    518  00AF                     L1:	
-   519                           ;main.c: 75: TRISIObits.TRISIO1 = 0;
+   519                           ;main.c: 82: TRISIObits.TRISIO1 = 0;
    520                           
    521  00AF  1085               	bcf	5,1	;volatile
    522  00B0                     l656:	
    523                           
-   524                           ;main.c: 76: }
-   525                           ;main.c: 77: bitPosition++;
+   524                           ;main.c: 83: }
+   525                           ;main.c: 84: bitPosition++;
    526  00B0  0AF9               	incf	sendSecurityString@bitPosition,f
    527                           
-   528                           ;main.c: 78: sendMask = sendMask << 1;
+   528                           ;main.c: 85: sendMask = sendMask << 1;
    529  00B1  1003               	clrc
    530  00B2  0DF7               	rlf	sendSecurityString@sendMask,f
    531  00B3  2898               	goto	l646
    532  00B4                     l45:	
    533                           
-   534                           ;main.c: 80: }
-   535                           ;main.c: 82: TRISIObits.TRISIO1 = 0;
+   534                           ;main.c: 87: }
+   535                           ;main.c: 89: TRISIObits.TRISIO1 = 0;
    536  00B4  1683               	bsf	3,5	;RP0=1, select bank1
    537  00B5  1085               	bcf	5,1	;volatile
    538                           
-   539                           ;main.c: 83: _delay((unsigned long)((8)*(8000000/4000.0)));
+   539                           ;main.c: 90: _delay((unsigned long)((8)*(8000000/4000.0)));
    540  00B6  3015               	movlw	21
    541  00B7  00F5               	movwf	??_sendSecurityString+1
    542  00B8  30C6               	movlw	198
@@ -560,7 +560,7 @@ Microchip Technology Omniscient Code Generator v1.38 (PRO mode) build 2016070103
    554  00C0                     __ptext2:	
    555 ;; *************** function _DOOR_DETECT *****************
    556 ;; Defined at:
-   557 ;;		line 88 in file "main.c"
+   557 ;;		line 95 in file "main.c"
    558 ;; Parameters:    Size  Location     Type
    559 ;;		None
    560 ;; Auto vars:     Size  Location     Type
@@ -591,18 +591,18 @@ Microchip Technology Omniscient Code Generator v1.38 (PRO mode) build 2016070103
    585                           ;psect for function _DOOR_DETECT
    586  00C0                     _DOOR_DETECT:	
    587                           
-   588                           ;main.c: 89: GPIO;
+   588                           ;main.c: 96: GPIO;
    589  00C0  1283               	bcf	3,5	;RP0=0, select bank0
    590  00C1  0805               	movf	5,w	;volatile
    591                           
-   592                           ;main.c: 90: if( GPIObits.GP0 == 0){
+   592                           ;main.c: 97: if( GPIObits.GP0 == 0){
    593  00C2  1805               	btfsc	5,0	;volatile
    594  00C3  28D4               	goto	i1l682
    595                           
-   596                           ;main.c: 91: INTCONbits.GIE = 0;
+   596                           ;main.c: 98: INTCONbits.GIE = 0;
    597  00C4  138B               	bcf	11,7	;volatile
    598                           
-   599                           ;main.c: 92: _delay((unsigned long)((50)*(8000000/4000.0)));
+   599                           ;main.c: 99: _delay((unsigned long)((50)*(8000000/4000.0)));
    600  00C5  3082               	movlw	130
    601  00C6  00F1               	movwf	??_DOOR_DETECT+1
    602  00C7  30DD               	movlw	221
@@ -614,23 +614,23 @@ Microchip Technology Omniscient Code Generator v1.38 (PRO mode) build 2016070103
    608  00CC  28C9               	goto	u21_27
    609  00CD  28CE               	nop2
    610                           
-   611                           ;main.c: 93: if(GPIObits.GP0 == 0){
+   611                           ;main.c: 100: if(GPIObits.GP0 == 0){
    612  00CE  1283               	bcf	3,5	;RP0=0, select bank0
    613  00CF  1805               	btfsc	5,0	;volatile
    614  00D0  28D3               	goto	i1l680
    615                           
-   616                           ;main.c: 94: sendSecurityEnable = 1;
+   616                           ;main.c: 101: sendSecurityEnable = 1;
    617  00D1  3001               	movlw	1
    618  00D2  00A5               	movwf	_sendSecurityEnable	;volatile
    619  00D3                     i1l680:	
    620                           
-   621                           ;main.c: 95: }
-   622                           ;main.c: 96: INTCONbits.GIE = 1;
+   621                           ;main.c: 102: }
+   622                           ;main.c: 103: INTCONbits.GIE = 1;
    623  00D3  178B               	bsf	11,7	;volatile
    624  00D4                     i1l682:	
    625                           
-   626                           ;main.c: 97: }
-   627                           ;main.c: 99: INTCONbits.GPIF = 0;
+   626                           ;main.c: 104: }
+   627                           ;main.c: 106: INTCONbits.GPIF = 0;
    628  00D4  100B               	bcf	11,0	;volatile
    629  00D5  0873               	movf	??_DOOR_DETECT+3,w
    630  00D6  008A               	movwf	10
@@ -768,7 +768,7 @@ EEDATA             100      0       0       0        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.38 build -256452561 
-Symbol Table                                                                                   Wed Nov 01 00:41:06 2017
+Symbol Table                                                                                   Wed Nov 01 15:57:50 2017
 
                   __CFG_CP$OFF 0000                             l45 00B4                             l55 0090  
                           l710 0028                            l730 005F                            l722 0056  

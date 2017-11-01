@@ -56,23 +56,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S60 . . . ]
 "1384
 [v _IOCbits `VS60 ~T0 @X0 0 e@150 ]
-"28 main.c
+"32 main.c
 [p x FOSC=INTOSCCLK ]
-"29
-[p x WDTE=OFF ]
-"30
-[p x PWRTE=OFF ]
-"31
-[p x MCLRE=ON ]
-"32
-[p x CP=OFF ]
 "33
-[p x CPD=OFF ]
+[p x WDTE=OFF ]
 "34
-[p x BOREN=OFF ]
+[p x PWRTE=OFF ]
 "35
-[p x IESO=OFF ]
+[p x MCLRE=ON ]
 "36
+[p x CP=OFF ]
+"37
+[p x CPD=OFF ]
+"38
+[p x BOREN=OFF ]
+"39
+[p x IESO=OFF ]
+"40
 [p x FCMEN=OFF ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -896,250 +896,250 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdlib.h: 101: extern char * ltoa(char * buf, long val, int base);
 [; ;stdlib.h: 102: extern char * ultoa(char * buf, unsigned long val, int base);
 [; ;stdlib.h: 104: extern char * ftoa(float f, int * status);
-"48 main.c
+"52 main.c
 [v _SCExS `uc ~T0 @X0 1 e ]
 [i _SCExS
 -> -> 83 `i `uc
 ]
-[; ;main.c: 48: unsigned char SCExS = 0b01010011;
-"49
+[; ;main.c: 52: unsigned char SCExS = 0b01010011;
+"53
 [v _SCExC `uc ~T0 @X0 1 e ]
 [i _SCExC
 -> -> 67 `i `uc
 ]
-[; ;main.c: 49: unsigned char SCExC = 0b01000011;
-"50
+[; ;main.c: 53: unsigned char SCExC = 0b01000011;
+"54
 [v _SCExE `uc ~T0 @X0 1 e ]
 [i _SCExE
 -> -> 69 `i `uc
 ]
-[; ;main.c: 50: unsigned char SCExE = 0b01000101;
-"51
+[; ;main.c: 54: unsigned char SCExE = 0b01000101;
+"55
 [v _SCExA `uc ~T0 @X0 1 e ]
 [i _SCExA
 -> -> 65 `i `uc
 ]
-[; ;main.c: 51: unsigned char SCExA = 0b01000001;
-"52
+[; ;main.c: 55: unsigned char SCExA = 0b01000001;
+"56
 [v _SCExI `uc ~T0 @X0 1 e ]
 [i _SCExI
 -> -> 73 `i `uc
 ]
-[; ;main.c: 52: unsigned char SCExI = 0b01001001;
-"53
+[; ;main.c: 56: unsigned char SCExI = 0b01001001;
+"57
 [v _SCExW `uc ~T0 @X0 1 e ]
 [i _SCExW
 -> -> 87 `i `uc
 ]
-[; ;main.c: 53: unsigned char SCExW = 0b01010111;
-"60
+[; ;main.c: 57: unsigned char SCExW = 0b01010111;
+"67
 [v _sendSecurityEnable `Vuc ~T0 @X0 1 e ]
 [i _sendSecurityEnable
 -> -> 1 `i `uc
 ]
-[; ;main.c: 60: volatile unsigned char sendSecurityEnable = 1;
-"62
+[; ;main.c: 67: volatile unsigned char sendSecurityEnable = 1;
+"69
 [v _sendSecurityString `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;main.c: 62: void sendSecurityString(unsigned char secChar){
+[; ;main.c: 69: void sendSecurityString(unsigned char secChar){
 [e :U _sendSecurityString ]
 [v _secChar `uc ~T0 @X0 1 r1 ]
 [f ]
-"63
-[v _bitPosition `uc ~T0 @X0 1 a ]
-[; ;main.c: 63: unsigned char bitPosition = 0;
-[e = _bitPosition -> -> 0 `i `uc ]
-"64
-[v _sendMask `uc ~T0 @X0 1 a ]
-[; ;main.c: 64: unsigned char sendMask = 0b00000001;
-[e = _sendMask -> -> 1 `i `uc ]
-"65
-[v _sendFlag `uc ~T0 @X0 1 a ]
-[; ;main.c: 65: unsigned char sendFlag;
-[; ;main.c: 67: TRISIObits.TRISIO1 = 1;
-"67
-[e = . . _TRISIObits 0 1 -> -> 1 `i `uc ]
-[; ;main.c: 68: _delay((unsigned long)((4)*(8000000/4000.0)));
-"68
-[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 70: while(bitPosition < 8){
 "70
+[v _bitPosition `uc ~T0 @X0 1 a ]
+[; ;main.c: 70: unsigned char bitPosition = 0;
+[e = _bitPosition -> -> 0 `i `uc ]
+"71
+[v _sendMask `uc ~T0 @X0 1 a ]
+[; ;main.c: 71: unsigned char sendMask = 0b00000001;
+[e = _sendMask -> -> 1 `i `uc ]
+"72
+[v _sendFlag `uc ~T0 @X0 1 a ]
+[; ;main.c: 72: unsigned char sendFlag;
+[; ;main.c: 74: TRISIObits.TRISIO1 = 1;
+"74
+[e = . . _TRISIObits 0 1 -> -> 1 `i `uc ]
+[; ;main.c: 75: _delay((unsigned long)((4)*(8000000/4000.0)));
+"75
+[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 77: while(bitPosition < 8){
+"77
 [e $U 84  ]
 [e :U 85 ]
 {
-[; ;main.c: 71: sendFlag = (secChar & sendMask);
-"71
+[; ;main.c: 78: sendFlag = (secChar & sendMask);
+"78
 [e = _sendFlag -> & -> _secChar `i -> _sendMask `i `uc ]
-[; ;main.c: 72: if(!sendFlag){
-"72
+[; ;main.c: 79: if(!sendFlag){
+"79
 [e $ ! ! != -> _sendFlag `i -> -> -> 0 `i `uc `i 87  ]
 {
-[; ;main.c: 73: TRISIObits.TRISIO1 = 1;
-"73
+[; ;main.c: 80: TRISIObits.TRISIO1 = 1;
+"80
 [e = . . _TRISIObits 0 1 -> -> 1 `i `uc ]
-"74
+"81
 }
-[; ;main.c: 74: } else {
+[; ;main.c: 81: } else {
 [e $U 88  ]
 [e :U 87 ]
 {
-[; ;main.c: 75: TRISIObits.TRISIO1 = 0;
-"75
-[e = . . _TRISIObits 0 1 -> -> 0 `i `uc ]
-"76
-}
-[e :U 88 ]
-[; ;main.c: 76: }
-[; ;main.c: 77: bitPosition++;
-"77
-[e ++ _bitPosition -> -> 1 `i `uc ]
-[; ;main.c: 78: sendMask = sendMask << 1;
-"78
-[e = _sendMask -> << -> _sendMask `i -> 1 `i `uc ]
-[; ;main.c: 79: _delay((unsigned long)((4)*(8000000/4000.0)));
-"79
-[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"80
-}
-[e :U 84 ]
-"70
-[e $ < -> _bitPosition `i -> 8 `i 85  ]
-[e :U 86 ]
-[; ;main.c: 80: }
 [; ;main.c: 82: TRISIObits.TRISIO1 = 0;
 "82
 [e = . . _TRISIObits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 83: _delay((unsigned long)((8)*(8000000/4000.0)));
 "83
-[e ( __delay (1 -> * -> -> 8 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 85: bitPosition = 0;
+}
+[e :U 88 ]
+[; ;main.c: 83: }
+[; ;main.c: 84: bitPosition++;
+"84
+[e ++ _bitPosition -> -> 1 `i `uc ]
+[; ;main.c: 85: sendMask = sendMask << 1;
 "85
-[e = _bitPosition -> -> 0 `i `uc ]
-[; ;main.c: 86: }
+[e = _sendMask -> << -> _sendMask `i -> 1 `i `uc ]
+[; ;main.c: 86: _delay((unsigned long)((4)*(8000000/4000.0)));
 "86
+[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"87
+}
+[e :U 84 ]
+"77
+[e $ < -> _bitPosition `i -> 8 `i 85  ]
+[e :U 86 ]
+[; ;main.c: 87: }
+[; ;main.c: 89: TRISIObits.TRISIO1 = 0;
+"89
+[e = . . _TRISIObits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 90: _delay((unsigned long)((8)*(8000000/4000.0)));
+"90
+[e ( __delay (1 -> * -> -> 8 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 92: bitPosition = 0;
+"92
+[e = _bitPosition -> -> 0 `i `uc ]
+[; ;main.c: 93: }
+"93
 [e :UE 83 ]
 }
 [v F983 `(v ~T0 @X0 1 tf ]
-"88
+"95
 [v _DOOR_DETECT `IF983 ~T0 @X0 1 s ]
 {
-[; ;main.c: 88: static void interrupt DOOR_DETECT(void){
+[; ;main.c: 95: static void interrupt DOOR_DETECT(void){
 [e :U _DOOR_DETECT ]
 [f ]
-[; ;main.c: 89: GPIO;
-"89
+[; ;main.c: 96: GPIO;
+"96
 [e _GPIO ]
-[; ;main.c: 90: if( GPIObits.GP0 == 0){
-"90
+[; ;main.c: 97: if( GPIObits.GP0 == 0){
+"97
 [e $ ! == -> . . _GPIObits 0 0 `i -> 0 `i 90  ]
 {
-[; ;main.c: 91: INTCONbits.GIE = 0;
-"91
+[; ;main.c: 98: INTCONbits.GIE = 0;
+"98
 [e = . . _INTCONbits 0 7 -> -> 0 `i `uc ]
-[; ;main.c: 92: _delay((unsigned long)((50)*(8000000/4000.0)));
-"92
+[; ;main.c: 99: _delay((unsigned long)((50)*(8000000/4000.0)));
+"99
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 93: if(GPIObits.GP0 == 0){
-"93
+[; ;main.c: 100: if(GPIObits.GP0 == 0){
+"100
 [e $ ! == -> . . _GPIObits 0 0 `i -> 0 `i 91  ]
 {
-[; ;main.c: 94: sendSecurityEnable = 1;
-"94
+[; ;main.c: 101: sendSecurityEnable = 1;
+"101
 [e = _sendSecurityEnable -> -> 1 `i `uc ]
-"95
+"102
 }
 [e :U 91 ]
-[; ;main.c: 95: }
-[; ;main.c: 96: INTCONbits.GIE = 1;
-"96
+[; ;main.c: 102: }
+[; ;main.c: 103: INTCONbits.GIE = 1;
+"103
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"97
+"104
 }
 [e :U 90 ]
-[; ;main.c: 97: }
-[; ;main.c: 99: INTCONbits.GPIF = 0;
-"99
+[; ;main.c: 104: }
+[; ;main.c: 106: INTCONbits.GPIF = 0;
+"106
 [e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-[; ;main.c: 100: }
-"100
+[; ;main.c: 107: }
+"107
 [e :UE 89 ]
 }
-"102
+"109
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 102: void main(void) {
+[; ;main.c: 109: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 103: OSCCON = 0x70;
-"103
-[e = _OSCCON -> -> 112 `i `uc ]
-[; ;main.c: 104: GPIO = 0xFF;
-"104
-[e = _GPIO -> -> 255 `i `uc ]
-[; ;main.c: 105: ANSEL = 0x00;
-"105
-[e = _ANSEL -> -> 0 `i `uc ]
-[; ;main.c: 106: GPIObits.GP1 = 0;
-"106
-[e = . . _GPIObits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 107: GPIObits.GP2 = 0;
-"107
-[e = . . _GPIObits 0 2 -> -> 0 `i `uc ]
-[; ;main.c: 108: TRISIO = 0x00;
-"108
-[e = _TRISIO -> -> 0 `i `uc ]
-[; ;main.c: 109: ADCON0 = 0x00;
-"109
-[e = _ADCON0 -> -> 0 `i `uc ]
-[; ;main.c: 110: CMCON0 = 0x07;
+[; ;main.c: 110: OSCCON = 0x70;
 "110
-[e = _CMCON0 -> -> 7 `i `uc ]
-[; ;main.c: 111: INTCONbits.GIE = 1;
+[e = _OSCCON -> -> 112 `i `uc ]
+[; ;main.c: 111: GPIO = 0xFF;
 "111
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-[; ;main.c: 112: INTCONbits.GPIE = 1;
+[e = _GPIO -> -> 255 `i `uc ]
+[; ;main.c: 112: ANSEL = 0x00;
 "112
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
-[; ;main.c: 113: IOC = 0x00;
+[e = _ANSEL -> -> 0 `i `uc ]
+[; ;main.c: 113: GPIObits.GP1 = 0;
 "113
-[e = _IOC -> -> 0 `i `uc ]
-[; ;main.c: 114: IOCbits.IOC0 = 1;
+[e = . . _GPIObits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 114: GPIObits.GP2 = 0;
 "114
-[e = . . _IOCbits 0 0 -> -> 1 `i `uc ]
-[; ;main.c: 116: TRISIObits.TRISIO0 = 1;
+[e = . . _GPIObits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 115: TRISIO = 0x00;
+"115
+[e = _TRISIO -> -> 0 `i `uc ]
+[; ;main.c: 116: ADCON0 = 0x00;
 "116
-[e = . . _TRISIObits 0 0 -> -> 1 `i `uc ]
-[; ;main.c: 117: TRISIObits.TRISIO1 = 1;
+[e = _ADCON0 -> -> 0 `i `uc ]
+[; ;main.c: 117: CMCON0 = 0x07;
 "117
-[e = . . _TRISIObits 0 1 -> -> 1 `i `uc ]
-[; ;main.c: 118: TRISIObits.TRISIO2 = 1;
+[e = _CMCON0 -> -> 7 `i `uc ]
+[; ;main.c: 118: INTCONbits.GIE = 1;
 "118
-[e = . . _TRISIObits 0 2 -> -> 1 `i `uc ]
-[; ;main.c: 120: while(1){
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;main.c: 119: INTCONbits.GPIE = 1;
+"119
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+[; ;main.c: 120: IOC = 0x00;
 "120
+[e = _IOC -> -> 0 `i `uc ]
+[; ;main.c: 121: IOCbits.IOC0 = 1;
+"121
+[e = . . _IOCbits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 123: TRISIObits.TRISIO0 = 1;
+"123
+[e = . . _TRISIObits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 124: TRISIObits.TRISIO1 = 1;
+"124
+[e = . . _TRISIObits 0 1 -> -> 1 `i `uc ]
+[; ;main.c: 125: TRISIObits.TRISIO2 = 1;
+"125
+[e = . . _TRISIObits 0 2 -> -> 1 `i `uc ]
+[; ;main.c: 127: while(1){
+"127
 [e :U 94 ]
 {
-[; ;main.c: 121: if (sendSecurityEnable == 1){
-"121
+[; ;main.c: 128: if (sendSecurityEnable == 1){
+"128
 [e $ ! == -> _sendSecurityEnable `i -> 1 `i 96  ]
 {
-[; ;main.c: 122: _delay((unsigned long)((50)*(8000000/4000.0)));
-"122
+[; ;main.c: 129: _delay((unsigned long)((50)*(8000000/4000.0)));
+"129
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 123: TRISIObits.TRISIO1 = 0;
-"123
+[; ;main.c: 130: TRISIObits.TRISIO1 = 0;
+"130
 [e = . . _TRISIObits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 124: _delay((unsigned long)((850)*(8000000/4000.0)));
-"124
+[; ;main.c: 131: _delay((unsigned long)((850)*(8000000/4000.0)));
+"131
 [e ( __delay (1 -> * -> -> 850 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 125: TRISIObits.TRISIO2 = 0;
-"125
+[; ;main.c: 132: TRISIObits.TRISIO2 = 0;
+"132
 [e = . . _TRISIObits 0 2 -> -> 0 `i `uc ]
-[; ;main.c: 126: _delay((unsigned long)((314)*(8000000/4000.0)));
-"126
+[; ;main.c: 133: _delay((unsigned long)((314)*(8000000/4000.0)));
+"133
 [e ( __delay (1 -> * -> -> 314 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 128: for (unsigned char i = 30; i > 0; i--){
-"128
+[; ;main.c: 135: for (unsigned char i = 30; i > 0; i--){
+"135
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 30 `i `uc ]
@@ -1147,8 +1147,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 98  ]
 [e :U 97 ]
 {
-[; ;main.c: 129: for(unsigned char j = 4; j > 0; j--){
-"129
+[; ;main.c: 136: for(unsigned char j = 4; j > 0; j--){
+"136
 {
 [v _j `uc ~T0 @X0 1 a ]
 [e = _j -> -> 4 `i `uc ]
@@ -1156,140 +1156,140 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 101  ]
 [e :U 100 ]
 {
-[; ;main.c: 130: sendSecurityString(SCExS);
-"130
+[; ;main.c: 137: sendSecurityString(SCExS);
+"137
 [e ( _sendSecurityString (1 _SCExS ]
-[; ;main.c: 131: sendSecurityString(SCExC);
-"131
+[; ;main.c: 138: sendSecurityString(SCExC);
+"138
 [e ( _sendSecurityString (1 _SCExC ]
-[; ;main.c: 132: sendSecurityString(SCExE);
-"132
+[; ;main.c: 139: sendSecurityString(SCExE);
+"139
 [e ( _sendSecurityString (1 _SCExE ]
-[; ;main.c: 133: switch(j){
-"133
+[; ;main.c: 141: switch(j){
+"141
 [e $U 104  ]
 {
-[; ;main.c: 134: case 4:
-"134
-[e :U 105 ]
-[; ;main.c: 135: {
-"135
-{
-[; ;main.c: 136: sendSecurityString(SCExA);
-"136
-[e ( _sendSecurityString (1 _SCExA ]
-[; ;main.c: 137: break;
-"137
-[e $U 103  ]
-"138
-}
-[; ;main.c: 138: }
-[; ;main.c: 139: case 3:
-"139
-[e :U 106 ]
-[; ;main.c: 140: {
-"140
-{
-[; ;main.c: 141: sendSecurityString(SCExE);
-"141
-[e ( _sendSecurityString (1 _SCExE ]
-[; ;main.c: 142: break;
+[; ;main.c: 142: case 4:
 "142
-[e $U 103  ]
+[e :U 105 ]
+[; ;main.c: 143: {
 "143
-}
-[; ;main.c: 143: }
-[; ;main.c: 144: case 2:
+{
+[; ;main.c: 144: sendSecurityString(SCExA);
 "144
-[e :U 107 ]
-[; ;main.c: 145: {
+[e ( _sendSecurityString (1 _SCExA ]
+[; ;main.c: 145: break;
 "145
-{
-[; ;main.c: 146: sendSecurityString(SCExI);
+[e $U 103  ]
 "146
-[e ( _sendSecurityString (1 _SCExI ]
-[; ;main.c: 147: break;
+}
+[; ;main.c: 146: }
+[; ;main.c: 147: case 3:
 "147
-[e $U 103  ]
+[e :U 106 ]
+[; ;main.c: 148: {
 "148
-}
-[; ;main.c: 148: }
-[; ;main.c: 149: case 1:
-"149
-[e :U 108 ]
-[; ;main.c: 150: {
-"150
 {
-[; ;main.c: 151: sendSecurityString(SCExW);
+[; ;main.c: 149: sendSecurityString(SCExE);
+"149
+[e ( _sendSecurityString (1 _SCExE ]
+[; ;main.c: 150: break;
+"150
+[e $U 103  ]
 "151
-[e ( _sendSecurityString (1 _SCExW ]
-[; ;main.c: 152: break;
+}
+[; ;main.c: 151: }
+[; ;main.c: 152: case 2:
 "152
-[e $U 103  ]
+[e :U 107 ]
+[; ;main.c: 153: {
 "153
-}
+{
+[; ;main.c: 154: sendSecurityString(SCExI);
 "154
-}
-[; ;main.c: 153: }
-[; ;main.c: 154: }
+[e ( _sendSecurityString (1 _SCExI ]
+[; ;main.c: 155: break;
+"155
 [e $U 103  ]
-"133
+"156
+}
+[; ;main.c: 156: }
+[; ;main.c: 157: case 1:
+"157
+[e :U 108 ]
+[; ;main.c: 158: {
+"158
+{
+[; ;main.c: 159: sendSecurityString(SCExW);
+"159
+[e ( _sendSecurityString (1 _SCExW ]
+[; ;main.c: 160: break;
+"160
+[e $U 103  ]
+"161
+}
+"162
+}
+[; ;main.c: 161: }
+[; ;main.c: 162: }
+[e $U 103  ]
+"141
 [e :U 104 ]
 [e [\ _j , $ -> -> 4 `i `uc 105
  , $ -> -> 3 `i `uc 106
  , $ -> -> 2 `i `uc 107
  , $ -> -> 1 `i `uc 108
  103 ]
-"154
+"162
 [e :U 103 ]
-[; ;main.c: 155: _delay((unsigned long)((72)*(8000000/4000.0)));
-"155
+[; ;main.c: 172: _delay((unsigned long)((72)*(8000000/4000.0)));
+"172
 [e ( __delay (1 -> * -> -> 72 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"156
+"173
 }
-"129
+"136
 [e -- _j -> -> 1 `i `uc ]
 [e $ > -> _j `i -> 0 `i 100  ]
 [e :U 101 ]
-"156
+"173
 }
-"159
+"176
 }
-"128
+"135
 [e -- _i -> -> 1 `i `uc ]
 [e $ > -> _i `i -> 0 `i 97  ]
 [e :U 98 ]
-"159
+"176
 }
-[; ;main.c: 156: }
-[; ;main.c: 159: }
-[; ;main.c: 161: TRISIObits.TRISIO1 = 1;
-"161
+[; ;main.c: 173: }
+[; ;main.c: 176: }
+[; ;main.c: 178: TRISIObits.TRISIO1 = 1;
+"178
 [e = . . _TRISIObits 0 1 -> -> 1 `i `uc ]
-[; ;main.c: 162: TRISIObits.TRISIO2 = 1;
-"162
+[; ;main.c: 179: TRISIObits.TRISIO2 = 1;
+"179
 [e = . . _TRISIObits 0 2 -> -> 1 `i `uc ]
-[; ;main.c: 164: sendSecurityEnable = 0;
-"164
+[; ;main.c: 181: sendSecurityEnable = 0;
+"181
 [e = _sendSecurityEnable -> -> 0 `i `uc ]
-"165
+"182
 }
 [e :U 96 ]
-[; ;main.c: 165: }
-[; ;main.c: 166: asm("sleep");
-"166
+[; ;main.c: 182: }
+[; ;main.c: 183: asm("sleep");
+"183
 [; <" sleep ;# ">
-"167
+"184
 }
 [e :U 93 ]
-"120
+"127
 [e $U 94  ]
 [e :U 95 ]
-[; ;main.c: 167: }
-[; ;main.c: 168: return;
-"168
+[; ;main.c: 184: }
+[; ;main.c: 185: return;
+"185
 [e $UE 92  ]
-[; ;main.c: 169: }
-"169
+[; ;main.c: 186: }
+"186
 [e :UE 92 ]
 }

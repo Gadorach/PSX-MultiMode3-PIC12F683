@@ -16,17 +16,16 @@
 //         MCLR Reset --+ 4 >>      >> 5 +-- gate output (GPIO2)
 //                      |                |
 //                      +----------------+
-
-// Pin 4 Unused, reset tied to internal pullup
-// Only connect pins 1, 5, 6, 7, 8
+//
+// Only connect pins 1, 4, 5, 6, 7, 8
 // Pinout compatible with MM3 installation diagrams
 // OneChip PAL BIOS patches not implemented at this time
 // NTSC BIOS patches not implemented at this time
-
+//
 // For an Arduino (Atmel) version, refer to PsNee or PsNee V6 (OneChip)
 // PsNee:    https://pastebin.com/82h52q37
 // PsNee V6: https://pastebin.com/cWCsYugc
-
+//
 // Note, the version of the Flash library linked in those is outdated and will not compile in recent Arduino builds.
 // For both, you will need this library: https://github.com/schinken/Flash/releases/tag/v1.0.1
 
@@ -56,6 +55,9 @@ unsigned char SCExE = 0b01000101;
 unsigned char SCExA = 0b01000001;
 unsigned char SCExI = 0b01001001;
 unsigned char SCExW = 0b01010111;
+
+#define REGIONSEL 0 // 0 = ALL, 1 = NA, 2 = EUR, 3 = JPN, 4 = Yaroze
+                    // All, or Multiregion, may cause boot time delays for some consoles. This can be fixed by using the correct region for your console exclusively.
 
 //TRIS Pins for handling the high-impedance input state for high outputs and ignoring regular operation
 #define MICRO_PIN7 TRISIObits.TRISIO0 //detect CD door pin
@@ -135,6 +137,7 @@ void main(void) {
             sendSecurityString(SCExS); //inject the security string for your console region to the CD controller
             sendSecurityString(SCExC);
             sendSecurityString(SCExE);
+          #if (REGIONSEL == 0) //ALL
             switch(j){
                 case 4:
                 {
@@ -157,6 +160,15 @@ void main(void) {
                     break;
                 }
             }
+          #elif (REGIONSEL == 1) //NA
+            sendSecurityString(SCExA);
+          #elif (REGIONSEL == 2) //EUR
+            sendSecurityString(SCExE);
+          #elif (REGIONSEL == 3) //JPN
+            sendSecurityString(SCExI);
+          #elif (REGIONSEL == 4) //Yaroze
+            sendSecurityString(SCExW);
+          #endif
             __delay_ms(72); //72ms delay footer for the CD drive to read each string
         }
           

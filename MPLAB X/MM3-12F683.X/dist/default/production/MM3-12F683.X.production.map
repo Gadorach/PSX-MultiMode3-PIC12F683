@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.38\dat\en_msgs.txt -cs \
   -h+dist/default/production\MM3-12F683.X.production.sym \
   --cmf=dist/default/production\MM3-12F683.X.production.cmf -z -Q12F683 \
-  -oC:\Users\WESLEY~1\AppData\Local\Temp\shqk.2 \
+  -oC:\Users\WESLEY~1\AppData\Local\Temp\seok.2 \
   -Mdist/default/production/MM3-12F683.X.production.map -E1 -ver=XC8 \
   -ASTACK=026h-06fh -pstack=STACK -ACODE=00h-07FFh -ASTRCODE=00h-07FFh \
   -ASTRING=00h-0FFhx8 -ACONST=00h-0FFhx8 -AENTRY=00h-0FFhx8 \
@@ -16,7 +16,7 @@ Linker command line:
   -pconfig=CONFIG -DCONFIG=2 -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 \
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\WESLEY~1\AppData\Local\Temp\shqk.obj \
+  C:\Users\WESLEY~1\AppData\Local\Temp\seok.obj \
   dist/default/production\MM3-12F683.X.production.obj 
 
 Object code version is 3.11
@@ -26,7 +26,7 @@ Machine type is 12F683
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\WESLEY~1\AppData\Local\Temp\shqk.obj
+C:\Users\WESLEY~1\AppData\Local\Temp\seok.obj
                 end_init                              A        A        1        8       0
                 reset_vec                             0        0        1        0       0
                 config                             2007     2007        1     400E       0
@@ -279,7 +279,7 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 102 in file "main.c"
+		line 109 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -309,7 +309,7 @@ Total ram usage:        5 bytes
 
  *************** function _sendSecurityString *****************
  Defined at:
-		line 62 in file "main.c"
+		line 69 in file "main.c"
  Parameters:    Size  Location     Type
   secChar         1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -342,7 +342,7 @@ Total ram usage:        6 bytes
 
  *************** function _DOOR_DETECT *****************
  Defined at:
-		line 88 in file "main.c"
+		line 95 in file "main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
