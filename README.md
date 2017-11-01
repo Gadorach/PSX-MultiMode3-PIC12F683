@@ -20,7 +20,8 @@ Uses the same diagrams as MM3, as this is pin-compatible. Only connect Pins 1,4,
 
 
 For an Arduino (Atmel) version, refer to PsNee or PsNee V6 (OneChip)
-PsNee:    https://pastebin.com/82h52q37
+
+PsNee: https://pastebin.com/82h52q37
 PsNee V6: https://pastebin.com/cWCsYugc
 
 Note, the version of the Flash library linked in those is outdated and will not compile in recent Arduino builds.
